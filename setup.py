@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='icao-aircrft',
-      version='0.0.9',
+      version='0.0.10',
       description='Python client for lookup of ICAO aircraft (Doc 8643) information',
       author='Marian Steinbach',
       author_email='marian@sendung.de',
