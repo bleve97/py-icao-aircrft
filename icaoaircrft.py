@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-import anydbm
+import dbm
 import pickle
 import requests
 from lxml import etree
@@ -41,7 +41,7 @@ def lookup(type_code='', manufacturer='', model='',
     if type_code is None:
         raise ValueError('type_code must not be None.')
 
-    cache = anydbm.open(cache_path, 'c')
+    cache = dbm.open(cache_path, 'c')
     if type_code in cache:
         return pickle.loads(cache[type_code])
 
@@ -115,4 +115,4 @@ if __name__ == '__main__':
                    help='Add a delay to prevent server hammering. Useful for multiple requests.')
     args = parser.parse_args()
     for item in lookup(type_code=args.type, delay=int(args.delay)):
-        print item
+        print(item)
